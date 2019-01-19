@@ -18,12 +18,14 @@
 						<div class="contact-icon mx-2">
 							<img th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).PHONE}" 	 th:src="@{/images/tf.png}" alt="Telephone" />
 							<img th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).MAIL}" 	 th:src="@{/images/gm.png}" alt="Mail" />
-							<img th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).LINKEDIN}" th:src="@{/images/LN.png}" alt="Linkedin" />
+							<img th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).LINKEDIN}" th:src="@{/images/ln.png}" alt="Linkedin" />
+							<img th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).GITHUB}" 	 th:src="@{/images/gh.png}" alt="GitHub" />
 						</div>
 						<span th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).PHONE} or 
 									 ${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).OTHER}" 									 	  th:text="${contact.value}"></span>
 						<a th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).MAIL}" 	   th:href="'mailto:' + ${contact.value}" th:text="${contact.value}" class="card-link"></a> 
-						<a th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).LINKEDIN}" th:href="${contact.value}" 		      th:text="${contact.value}" class="card-link"></a> 
+						<a th:if="${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).LINKEDIN} or 
+								  ${contact.contactType == T(com.pmr.springbootcvweb.constants.ContactType).GITHUB} "  th:href="${contact.value}" 		      th:text="${contact.value}" class="card-link"></a> 
 					</div>
 				</div>
 			</div>
