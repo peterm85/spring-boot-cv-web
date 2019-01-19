@@ -8,13 +8,18 @@ hr{
 	border-color:#1F497D;
 }
 
-.column1{
+.column65{
 	width:65%;
 }
 
-.column2{
+.column35{
 	width:35%;
 }
+
+.column49{
+	width:49%;
+}
+
 
 img {
     max-width: 100%;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout/layout :: head"></head>
+	<body>
+	
+		<header th:replace="layout/layout :: header"></header>
+	
+		<div class="container w-75">
+			
+			<div id="personalData" class="card mt-2 mb-4 personalData">
+				<div class="card-body w-75 float-left">
+					<p th:text="${person.description}" class="text-justify" style="font-size: 18px;"></p>
+					
+					<hr class="corporativeColor"/>
+					
+					<h2 th:text="${person.fullName}" class="float-right"></h2>
+					<br/><br/>
+					<div class="d-block float-right">
+						<h4 th:text="${person.currentRol}" class="fs-i"></h4>
+					</div>
+				</div>
+				
+				<div class="card-body w-25 float-right background-photo">
+					<img th:src="@{/images/photo.png}" alt="Photo" class="photo-thumbnail"/>
+				</div>
+			</div>
+				
+			<div id="mainContainer">
+				<div id="knowledgeContainer" class="float-left w-100" >
+				
+					<div id="knowledgeHeader">
+						<div class="contact-icon mx-2">
+							<img th:src="@{/images/briefcase.png}" alt="Knowledge" />
+						</div>
+						<h3 class="corporativeColor sectionTitle">Tecnolog&iacuteas</h3>
+					</div>
+					
+					<div class="card float-left bg-light my-2 ml-2 column49" th:each="category: ${categories}">
+						<div class="card-body" style="font-size:14px;">
+							<h5 class="card-title d-block fs-b" th:text="${category.name}"></h5>
+							
+							<div th:each="knowledge: ${category.knowledge}">
+								<div class="float-left w-50">
+									<span class="card-subtitle" th:text="${knowledge.name}"></span>
+								</div>
+								<meter class="w-25"
+									   min="0" max="10" low="2" high="7" optimum="10" 
+									   th:value="${knowledge.level}"></meter>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<footer th:replace="layout/layout :: footer"></footer>
+		
+	</body>
+</html>
